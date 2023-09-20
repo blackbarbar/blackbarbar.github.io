@@ -28,7 +28,7 @@
                 <a href="#our-work">Our Work</a>
               </li>
               <li>
-                <a href="#about_us">Contact</a>
+                <a href="#contact">Contact</a>
               </li>
             </ol>
           </div>
@@ -242,7 +242,6 @@
     <div class="bg" id="our-work">
       <div class="mask"></div>
       <div class="text">
-        <img src="/images/studio_icon.png" alt="" />
         <h2>UI Studios</h2>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam,
@@ -252,62 +251,129 @@
       </div>
       <div class="images">
         <div class="image-container">
-          <div class="carousel-button left" onclick="prevImage()">&#10094;</div>
-          <div class="images">
-            <img src="images/ddd.jpg" alt="Image 2" />
-            <img src="images/ddd.jpg" class="middle" alt="Image 1" />
-
-            <img src="images/ddd.jpg" alt="Image 3" />
-            <img src="images/ddd.jpg" alt="Image 4" />
-            <img src="images/ddd.jpg" alt="Image 4" />
-            <img src="images/ddd.jpg" alt="Image 4" />
-            <img src="images/ddd.jpg" alt="Image 4" />
-            <img src="images/ddd.jpg" alt="Image 4" />
-            <img src="images/ddd.jpg" alt="Image 4" />
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 10</div>
+            <img
+              src="images/work/image01.png"
+              style="width: 100%; border-radius: 1em"
+            />
           </div>
-          <div class="carousel-button right" onclick="nextImage()">
-            &#10095;
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 10</div>
+            <img
+              src="images/work/image02.png"
+              style="width: 100%; border-radius: 1em"
+            />
           </div>
-          <h2>Custom UI's</h2>
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 10</div>
+            <img
+              src="images/work/image03.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 10</div>
+            <img
+              src="images/work/image04.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 10</div>
+            <img
+              src="images/work/image05.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">6 / 10</div>
+            <img
+              src="images/work/image06.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">7 / 10</div>
+            <img
+              src="images/work/image07.jpg"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">8 / 10</div>
+            <img
+              src="images/work/image08.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">9 / 10</div>
+            <img
+              src="images/work/image09.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">10 / 10</div>
+            <img
+              src="images/work/image10.png"
+              style="width: 100%; border-radius: 1em"
+            />
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+        <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+          <span class="dot" onclick="currentSlide(8)"></span>
+          <span class="dot" onclick="currentSlide(9)"></span>
+          <span class="dot" onclick="currentSlide(10)"></span>
         </div>
       </div>
     </div>
   </body>
   <script>
-    let currentImageIndex = 0;
-    const images = document.querySelectorAll(".images img");
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-    function updateCarousel() {
-      images.forEach((img, index) => {
-        if (index === currentImageIndex) {
-          img.classList.add("middle");
-          img.style.opacity = 1;
-        } else {
-          img.classList.remove("middle");
-          img.style.opacity = 0.7;
-        }
-      });
-
-      const translateX = -currentImageIndex * 200; // Adjust this value based on image width and margin
-      document.querySelector(
-        ".images"
-      ).style.transform = `translateX(${translateX}px)`;
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
     }
 
-    function prevImage() {
-      if (currentImageIndex > 0) {
-        currentImageIndex--;
-        updateCarousel();
-      }
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
     }
 
-    function nextImage() {
-      if (currentImageIndex < images.length - 3) {
-        currentImageIndex++;
-        updateCarousel();
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1;
       }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
     }
   </script>
 
-  <footer style="margin-top: 100em"></footer>
+  <footer id="contact"></footer>
 </html>

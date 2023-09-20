@@ -269,30 +269,35 @@ header {
 
 .bg {
     margin: 0;
-    padding: 0 0 0 0;
+    padding: 0;
     position: relative;
+
+    .mask {
+        width: 100%;
+        height: 150vh;
+        background: rgb(12, 12, 12);
+        mask-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg"), url("../images/glasses.png");
+        mask-repeat: no-repeat;
+        mask-size: 100%, 60%;
+        mask-position: center 5%;
+        mask-composite: subtract;
+    }
 
     .text {
         position: absolute;
-        top: 12.5%;
+        top: 20%;
         left: 50%;
-        transform: translate(-50%, -75%);
+        transform: translate(-50%, -100%);
         text-align: center;
         margin: 0;
         z-index: 99;
-
-        img {
-            margin: 0;
-            height: 100px;
-            width: 100px;
-        }
 
         h2 {
             margin: 0;
             padding: -1em 0 0 0;
             font-family: 'Kanit', sans-serif;
             font-size: 45px;
-            color: white;
+            color: rgb(255, 132, 24);
         }
 
         p {
@@ -305,7 +310,7 @@ header {
 
     .images {
         position: absolute;
-        bottom: 65%;
+        bottom: 5%;
         left: 50%;
         transform: translate(-50%, 0%);
         text-align: center;
@@ -313,73 +318,106 @@ header {
         z-index: 99;
 
         .image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+
+            .prev {
+                left: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+            }
+
+            .mySlides {
+                display: none;
+
+                .numbertext {
+                    font-family: 'Kanit', sans-serif;
+                    color: #ffffff;
+                    font-size: 15px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    top: 0;
+                }
+            }
+
+            .fade {
+                animation-name: fade;
+                animation-duration: 2s;
+            }
+
+            @keyframes fade {
+                from {opacity: 0}
+                to {opacity: 1}
+            }
         }
 
-        .images {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .images img {
-            width: 200px; /* Adjust the width as needed */
-            opacity: 0.7;
-            margin: 0 10px;
-        }
-
-        .images img.middle {
-            width: 225px; /* Adjust the width as needed */
-            opacity: 1;
-        }
-
-        .carousel-button {
+        .dot {
             cursor: pointer;
-            font-size: 24px;
-            padding: 10px;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+          
+        .active  {
+            background-color: rgb(255, 132, 24);
         }
 
-        .carousel-button.left {
-            margin-right: 10px;
+        .dot:hover {
+            background-color: rgb(255, 209, 168);
         }
-
-        .carousel-button.right {
-            margin-left: 10px;
-        }
-    }
-    
-    .mask {
-        width: 100%;
-        height: 300vh;
-        background: rgb(12, 12, 12);
-        mask-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg"), url("../images/glasses.png");
-        mask-repeat: no-repeat;
-        mask-size: 100%, 60%;
-        mask-position: center 5%;
-        mask-composite: subtract;
     }
 }
 
 .reveal {
     position: relative;
     opacity: 0;
-  }
+}
   
-  .reveal.active {
+.reveal.active {
     opacity: 1;
-  }
-  .active.fade-bottom {
+}
+
+.active.fade-bottom {
     animation: fade-bottom 1s ease-in;
-  }
-  .active.fade-left {
+}
+
+.active.fade-left {
     animation: fade-left .4s ease-in;
-  }
-  .active.fade-right {
+}
+
+.active.fade-right {
     animation: fade-right .4s ease-in;
-  }
-  @keyframes fade-bottom {
+}
+
+@keyframes fade-bottom {
     0% {
       transform: translateY(50px);
       opacity: 0;
@@ -388,8 +426,9 @@ header {
       transform: translateY(0);
       opacity: 1;
     }
-  }
-  @keyframes fade-left {
+}
+
+@keyframes fade-left {
     0% {
       transform: translateX(-150px);
       opacity: 0;
@@ -398,9 +437,9 @@ header {
       transform: translateX(0);
       opacity: 1;
     }
-  }
+}
   
-  @keyframes fade-right {
+@keyframes fade-right {
     0% {
       transform: translateX(100px);
       opacity: 0;
@@ -409,4 +448,11 @@ header {
       transform: translateX(0);
       opacity: 1;
     }
-  }
+}
+
+footer {
+    margin: 0;
+    padding: 2em 1em;
+    height: 500px;
+    background: black;
+}
