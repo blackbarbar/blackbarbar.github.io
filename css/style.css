@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+:root {
+  --accent-color: #193675;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent-color);
+  padding: 1em 2em;
+  color: white;
+}
+.navbar .navbar-left {
+  display: flex;
+  align-items: center;
+}
+.navbar .navbar-left .navbar-icon {
+  width: 70px;
+  margin-right: 10px;
+}
+.navbar .navbar-left .navbar-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+.navbar .navbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.navbar .navbar-center a {
+  color: white;
+  text-decoration: none;
+  margin: 0 4em;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+.navbar .navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar .navbar-right a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5em;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+.navbar .navbar-right .navbar-icon {
+  margin-right: 0;
+  width: 40px;
+}
+.navbar .navbar-center a:hover,
+.navbar .navbar-right a:hover {
+  text-decoration: underline;
+}
+
+.welcome {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.welcome h1 {
+  margin: 0;
+  padding: 1em 0 0 2em;
+  font-family: "Oswald", sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+.welcome button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7em auto;
+  padding: 1em 3em;
+  background-color: var(--accent-color);
+  border: none;
+  font-family: "Radio Canada Big", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  border-radius: 0.5em;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.gradient {
+  margin: 0;
+  background: rgb(81, 136, 208);
+  background: linear-gradient(315deg, rgb(81, 136, 208) 14%, rgb(84, 146, 209) 32%, rgb(128, 198, 245) 61%, rgb(185, 236, 246) 92%);
+}
+
+.about-us {
+  margin: 0;
+  padding: 3em 0;
+  text-align: center;
+}
+.about-us h2 {
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+}
+.about-us p {
+  margin: 0 auto;
+  font-family: sans-serif;
+  width: 700px;
+}
+.about-us .list {
+  margin: 3em 15em 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-us .box {
+  flex: 0 0 300px;
+  margin: 0 2em;
+  padding: 1em;
+  height: 300px;
+  border-radius: 50%;
+  background: rgb(24, 29, 56);
+  color: white;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+}
+.about-us .box img {
+  width: 150px;
+}
+
+.service {
+  margin: 15em 0 0 0;
+  padding: 3em 0;
+  text-align: center;
+  background-image: url("../img/test2.bmp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.service h2 {
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  color: white;
+}
+.service .list {
+  margin: 0 10em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Optional: adds space between boxes */
+  justify-content: center; /* Optional: centers the boxes horizontally */
+  padding: 20px;
+}
+.service .list .box {
+  margin: 50px;
+  background-color: rgb(24, 29, 56);
+  border-radius: 0.5em;
+  padding: 2em;
+  height: 450px;
+  width: 350px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.service .list .box img {
+  margin: 0;
+  padding: 0;
+  width: 140px;
+}
+.service .list .box h3 {
+  margin: 1em 0 0 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: white;
+}
+.service .list .box p {
+  margin: 2em 0 0 0;
+  padding: 0;
+  font-family: "Radio Canada Big", sans-serif;
+  color: white;
+}
+
+footer {
+  margin: 0;
+  padding: 1em 0;
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-size: 80px;
+}
+footer img {
+  width: 100px;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style.css.map */
